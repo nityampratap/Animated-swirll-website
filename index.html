@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWIRL — Cake · Ice Cream · Shakes</title>
+  <meta name="description" content="SWIRL crafts extraordinary cakes, ice cream, and milkshakes. Where indulgence meets artistry — every layer tells a story.">
+  <meta name="theme-color" content="#0d0709">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       STICKY NAV  (hidden until user scrolls past the film)
+       ═══════════════════════════════════════════════════════════════ -->
+  <nav id="sticky-nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">SWIRL</a>
+      <div class="nav-links" id="nav-desktop-links">
+        <a href="#manifesto">Manifesto</a>
+        <a href="#story">Story</a>
+        <a href="#craft">Craft</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#cta" class="nav-cta">Taste the Swirl</a>
+      </div>
+      <!-- Mobile hamburger -->
+      <button id="nav-hamburger" aria-label="Menu" aria-expanded="false"
+              style="display:none; background:none; border:none; color:var(--text); font-size:1.5rem; cursor:pointer;">
+        ☰
+      </button>
+    </div>
+    <!-- Mobile dropdown -->
+    <div id="nav-mobile-menu" style="display:none;">
+      <a href="#manifesto">Manifesto</a>
+      <a href="#story">Story</a>
+      <a href="#craft">Craft</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#cta">Taste the Swirl</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SCROLL FILM  (canvas + captions + spacer)
+       ═══════════════════════════════════════════════════════════════ -->
+  <section id="scroll-film">
+
+    <!-- Loading state (shown before frames exist) -->
+    <div id="film-loading" class="film-loading">
+      <div class="film-loading-spinner"></div>
+      <p>Loading film…</p>
+    </div>
+
+    <!-- Canvas for frame playback -->
+    <canvas id="film-canvas"></canvas>
+
+    <!-- Gradient overlay at bottom of film (fades to bg) -->
+    <div id="film-canvas-overlay"></div>
+
+    <!-- Chapter captions layer -->
+    <div id="caption-layer">
+
+      <!-- SWIRL title: visible at scroll 0 (negative data-in) -->
+      <div class="chapter-caption swirl-hero" data-in="-0.05" data-out="0.06">
+        <h1 class="caption-title">SWIRL</h1>
+        <p class="caption-subtitle">Cake · Ice Cream · Shakes</p>
+      </div>
+
+      <!-- CH1: The Foundation -->
+      <div class="chapter-caption" data-in="0.02" data-out="0.14">
+        <h2 class="caption-title">THE FOUNDATION</h2>
+        <p class="caption-subtitle">Every masterpiece begins with a single layer</p>
+      </div>
+
+      <!-- CH2: The Craft -->
+      <div class="chapter-caption" data-in="0.15" data-out="0.28">
+        <h2 class="caption-title">THE CRAFT</h2>
+        <p class="caption-subtitle">Patience, precision, the perfect peak</p>
+      </div>
+
+      <!-- CH3: The Pour -->
+      <div class="chapter-caption" data-in="0.29" data-out="0.42">
+        <h2 class="caption-title">THE POUR</h2>
+        <p class="caption-subtitle">Silk meets glass</p>
+      </div>
+
+      <!-- CH4: The Finish -->
+      <div class="chapter-caption" data-in="0.43" data-out="0.56">
+        <h2 class="caption-title">THE FINISH</h2>
+        <p class="caption-subtitle">Details make the difference</p>
+      </div>
+
+      <!-- CH5: The Moment -->
+      <div class="chapter-caption" data-in="0.57" data-out="0.68">
+        <h2 class="caption-title">THE MOMENT</h2>
+        <p class="caption-subtitle">Ready when you are</p>
+      </div>
+
+      <!-- CH6: The Ingredients -->
+      <div class="chapter-caption" data-in="0.69" data-out="0.82">
+        <h2 class="caption-title">THE INGREDIENTS</h2>
+        <p class="caption-subtitle">Nature's finest, in orbit</p>
+      </div>
+
+      <!-- CH7: The Ensemble -->
+      <div class="chapter-caption" data-in="0.83" data-out="0.97">
+        <h2 class="caption-title">THE ENSEMBLE</h2>
+        <p class="caption-subtitle">Together, extraordinary</p>
+      </div>
+
+    </div><!-- /caption-layer -->
+
+    <!-- Tall spacer that drives the scroll-scrub (height set by JS) -->
+    <div id="film-spacer" style="height: 700vh;"></div>
+
+  </section><!-- /scroll-film -->
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       BRAND HOMEPAGE — same scroll story continues below
+       ═══════════════════════════════════════════════════════════════ -->
+  <main id="brand-content">
+
+    <!-- ─── MANIFESTO ─────────────────────────────────────────────── -->
+    <section id="manifesto" class="section">
+      <div class="container">
+        <div class="reveal">
+          <div class="divider-line"></div>
+          <p class="manifesto-text" style="margin-top: 2rem;">
+            We don't make desserts.<br>
+            We compose <em>moments of pure joy</em> —<br>
+            layered, swirled, and crafted to make<br>
+            every single bite unforgettable.
+          </p>
+          <div class="divider-dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ORIGIN / STORY ────────────────────────────────────────── -->
+    <section id="story" class="section">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-text reveal">
+            <p class="heading-sm accent-gold">Our Story</p>
+            <h2 class="heading-lg">Born from a<br>midnight craving</h2>
+            <p class="body-lg" style="margin-top: 1.5rem;">
+              SWIRL started in a tiny kitchen at 2 AM — a pastry chef, a
+              gelato maker, and a mixologist who refused to believe that cake,
+              ice cream, and shakes had to live in separate worlds. They
+              started layering. Swirling. Breaking every rule in the dessert
+              playbook.
+            </p>
+            <p class="body-lg" style="margin-top: 1rem;">
+              What emerged wasn't just a menu — it was a new language of
+              indulgence. Each creation is a conversation between texture,
+              temperature, and taste. From the first crumb of chocolate cake
+              to the last sip of strawberry shake, every element is composed
+              with the obsession of artists and the precision of engineers.
+            </p>
+          </div>
+          <div class="story-image-wrap reveal reveal-delay-2">
+            <img src="stills/ch02_craft.webp"
+                 alt="Soft-serve ice cream forming a perfect peak"
+                 class="masked-image"
+                 loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CRAFT ─────────────────────────────────────────────────── -->
+    <section id="craft" class="section">
+      <div class="container">
+
+        <div class="craft-header reveal">
+          <p class="heading-sm accent-pink">The Process</p>
+          <h2 class="heading-lg">Crafted, never<br>manufactured</h2>
+        </div>
+
+        <div class="craft-chapters">
+
+          <!-- Craft 1: Ingredients -->
+          <div class="craft-chapter reveal">
+            <div class="craft-chapter-text">
+              <span class="craft-number accent-pink">01</span>
+              <h3 class="heading-md">Source Obsessively</h3>
+              <p class="body-lg" style="margin-top: 0.8rem;">
+                Belgian chocolate. Tahitian vanilla. Strawberries picked at
+                peak sweetness, never stored. Every ingredient is chosen not
+                for convenience, but for the single moment it reaches
+                perfection.
+              </p>
+            </div>
+            <div>
+              <img src="stills/ch06_ingredients.webp"
+                   alt="Fresh strawberries, chocolate, and mint in orbit"
+                   class="masked-image-soft"
+                   loading="lazy">
+            </div>
+          </div>
+
+          <!-- Craft 2: Layering -->
+          <div class="craft-chapter reveal">
+            <div class="craft-chapter-text">
+              <span class="craft-number accent-gold">02</span>
+              <h3 class="heading-md">Layer with Intent</h3>
+              <p class="body-lg" style="margin-top: 0.8rem;">
+                Each layer is a deliberate decision — the density of the cake,
+                the aeration of the cream, the viscosity of the drizzle. We
+                engineer texture contrasts so every bite delivers crunch, silk,
+                and melt in a single gesture.
+              </p>
+            </div>
+            <div>
+              <img src="stills/ch01_foundation.webp"
+                   alt="Rich chocolate cake layers being assembled"
+                   class="masked-image-soft"
+                   loading="lazy">
+            </div>
+          </div>
+
+          <!-- Craft 3: The Swirl -->
+          <div class="craft-chapter reveal">
+            <div class="craft-chapter-text">
+              <span class="craft-number accent-pink">03</span>
+              <h3 class="heading-md">Swirl to Perfection</h3>
+              <p class="body-lg" style="margin-top: 0.8rem;">
+                The signature swirl isn't decoration — it's technique.
+                Temperature, speed, and wrist angle all conspire to create
+                peaks that hold their shape while melting at precisely the
+                right moment on your palate.
+              </p>
+            </div>
+            <div>
+              <img src="stills/ch03_pour.webp"
+                   alt="Pink strawberry milkshake being poured"
+                   class="masked-image-soft"
+                   loading="lazy">
+            </div>
+          </div>
+
+          <!-- Craft 4: Finishing -->
+          <div class="craft-chapter reveal">
+            <div class="craft-chapter-text">
+              <span class="craft-number accent-gold">04</span>
+              <h3 class="heading-md">Finish Fearlessly</h3>
+              <p class="body-lg" style="margin-top: 0.8rem;">
+                Sprinkles hand-placed, not scattered. Drizzle applied in
+                precise geometric patterns. A single cherry, polished and
+                positioned. The finish is where good becomes extraordinary.
+              </p>
+            </div>
+            <div>
+              <img src="stills/ch04_finish.webp"
+                   alt="Sprinkles and cherry being placed on a sundae"
+                   class="masked-image-soft"
+                   loading="lazy">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── STATS STRIP ───────────────────────────────────────────── -->
+    <section id="stats" class="section" style="padding: clamp(3rem, 6vw, 5rem) 0;">
+      <div class="container-wide">
+        <div class="stats-grid reveal">
+          <div class="stat-item">
+            <div class="stat-number">24</div>
+            <div class="stat-label">Signature Flavors</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Countries Sourced</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Natural Ingredients</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Worlds United</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIAL ───────────────────────────────────────────── -->
+    <section id="testimonial" class="section">
+      <div class="container">
+        <div class="reveal">
+          <p class="testimonial-quote">
+            The first time I tried SWIRL, I closed my eyes and forgot
+            where I was. It wasn't a dessert — it was a place. A warm,
+            impossibly delicious place I never wanted to leave.
+          </p>
+          <p class="testimonial-author">Maya Chen</p>
+          <p class="testimonial-role">Food Editor, Savor Magazine</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── GALLERY ───────────────────────────────────────────────── -->
+    <section id="gallery" class="section">
+      <div class="container-wide">
+
+        <div class="gallery-header reveal">
+          <p class="heading-sm accent-gold">The Collection</p>
+          <h2 class="heading-lg">Every creation,<br>a work of art</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item reveal reveal-delay-1">
+            <img src="stills/ch01_foundation.webp"
+                 alt="Chocolate cake masterpiece" loading="lazy">
+            <span class="gallery-item-label">Chocolate Foundation</span>
+          </div>
+          <div class="gallery-item reveal reveal-delay-2">
+            <img src="stills/ch02_craft.webp"
+                 alt="Soft-serve ice cream peak" loading="lazy">
+            <span class="gallery-item-label">Perfect Peak</span>
+          </div>
+          <div class="gallery-item reveal reveal-delay-3">
+            <img src="stills/ch03_pour.webp"
+                 alt="Strawberry milkshake pour" loading="lazy">
+            <span class="gallery-item-label">Strawberry Silk</span>
+          </div>
+          <div class="gallery-item reveal reveal-delay-1">
+            <img src="stills/ch04_finish.webp"
+                 alt="Sundae with sprinkles and cherry" loading="lazy">
+            <span class="gallery-item-label">The Finishing Touch</span>
+          </div>
+          <div class="gallery-item reveal reveal-delay-2">
+            <img src="stills/ch05_moment.webp"
+                 alt="Straw dropping into milkshake" loading="lazy">
+            <span class="gallery-item-label">That Moment</span>
+          </div>
+          <div class="gallery-item reveal reveal-delay-3">
+            <img src="stills/ch07_ensemble.webp"
+                 alt="Complete cake sundae shake composition" loading="lazy">
+            <span class="gallery-item-label">The Full Ensemble</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── CTA ───────────────────────────────────────────────────── -->
+    <section id="cta" class="section">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="heading-xl cta-heading">Taste the<br><span class="accent-pink">Swirl</span></h2>
+          <p class="cta-sub">
+            Find your nearest SWIRL studio, or order for delivery.
+            Your next unforgettable moment is one swirl away.
+          </p>
+          <a href="#" class="btn-primary" id="cta-button">
+            Order Now <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /brand-content -->
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container-wide">
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="nav-logo">SWIRL</span>
+          <p>
+            Where cake, ice cream, and shakes become one extraordinary
+            experience. Handcrafted obsessively, served joyfully.
+          </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram">✦</a>
+            <a href="#" aria-label="TikTok">▶</a>
+            <a href="#" aria-label="Twitter">✕</a>
+            <a href="#" aria-label="YouTube">▷</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Menu</h4>
+          <a href="#">Cakes</a>
+          <a href="#">Ice Cream</a>
+          <a href="#">Shakes</a>
+          <a href="#">Seasonal</a>
+          <a href="#">Catering</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#story">Our Story</a>
+          <a href="#">Locations</a>
+          <a href="#">Careers</a>
+          <a href="#">Press Kit</a>
+          <a href="#">Franchise</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Contact Us</a>
+          <a href="#">FAQs</a>
+          <a href="#">Allergen Info</a>
+          <a href="#">Gift Cards</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 SWIRL. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SCRIPTS — order matters: engine → captions → nav
+       ═══════════════════════════════════════════════════════════════ -->
+  <script src="scroll-engine.js"></script>
+  <script src="captions.js"></script>
+  <script src="nav.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+{
+  "totalFrames": 548,
+  "fps": 12,
+  "width": 1400,
+  "masterDuration": 45.6,
+  "chapters": [
+    {
+      "id": "foundation",
+      "name": "The Foundation",
+      "caption": "THE FOUNDATION",
+      "subtitle": "Every masterpiece begins with a single layer",
+      "scrollStart": 0.0,
+      "scrollEnd": 0.1711,
+      "startFrame": 0,
+      "endFrame": 94
+    },
+    {
+      "id": "craft",
+      "name": "The Craft",
+      "caption": "THE CRAFT",
+      "subtitle": "Patience, precision, the perfect peak",
+      "scrollStart": 0.1711,
+      "scrollEnd": 0.2939,
+      "startFrame": 94,
+      "endFrame": 161
+    },
+    {
+      "id": "pour",
+      "name": "The Pour",
+      "caption": "THE POUR",
+      "subtitle": "Silk meets glass",
+      "scrollStart": 0.2939,
+      "scrollEnd": 0.4605,
+      "startFrame": 161,
+      "endFrame": 252
+    },
+    {
+      "id": "finish",
+      "name": "The Finish",
+      "caption": "THE FINISH",
+      "subtitle": "Details make the difference",
+      "scrollStart": 0.4605,
+      "scrollEnd": 0.5833,
+      "startFrame": 252,
+      "endFrame": 319
+    },
+    {
+      "id": "moment",
+      "name": "The Moment",
+      "caption": "THE MOMENT",
+      "subtitle": "Ready when you are",
+      "scrollStart": 0.5833,
+      "scrollEnd": 0.7061,
+      "startFrame": 319,
+      "endFrame": 386
+    },
+    {
+      "id": "ingredients",
+      "name": "The Ingredients",
+      "caption": "THE INGREDIENTS",
+      "subtitle": "Nature's finest, in orbit",
+      "scrollStart": 0.7061,
+      "scrollEnd": 0.8289,
+      "startFrame": 386,
+      "endFrame": 453
+    },
+    {
+      "id": "ensemble",
+      "name": "The Ensemble",
+      "caption": "THE ENSEMBLE",
+      "subtitle": "Together, extraordinary",
+      "scrollStart": 0.8289,
+      "scrollEnd": 1.0,
+      "startFrame": 453,
+      "endFrame": 547
+    }
+  ]
+}

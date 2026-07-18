@@ -1,0 +1,17 @@
+# Swirl Scroll-Film Website Git Ignore
+
+# Large Binaries
+ffmpeg.exe
+ffprobe.exe
+
+# Raw/Master video compilation
+master.mp4
+
+# Intermediate build files & directories
+_chapters.json
+_tmp_pngs/
+test.txt
+
+# OS-specific files
+.DS_Store
+Thumbs.db

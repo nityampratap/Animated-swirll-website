@@ -31,49 +31,49 @@ WEBP_QUALITY   = 82
 # Story order — glob patterns matched against filenames in VIDEOS_DIR
 STORY = [
     {
-        "glob":     "Chocolate_cake_collapses",
+        "glob":     "Video Project",
         "id":       "foundation",
         "name":     "The Foundation",
         "caption":  "THE FOUNDATION",
         "subtitle": "Every masterpiece begins with a single layer",
     },
     {
-        "glob":     "Soft-serve_ice_cream",
+        "glob":     "Video Project 1",
         "id":       "craft",
         "name":     "The Craft",
         "caption":  "THE CRAFT",
         "subtitle": "Patience, precision, the perfect peak",
     },
     {
-        "glob":     "Pink_strawberry_milkshake",
+        "glob":     "Video Project 2",
         "id":       "pour",
         "name":     "The Pour",
         "caption":  "THE POUR",
         "subtitle": "Silk meets glass",
     },
     {
-        "glob":     "Sprinkles",
+        "glob":     "Video Project 3",
         "id":       "finish",
         "name":     "The Finish",
         "caption":  "THE FINISH",
         "subtitle": "Details make the difference",
     },
     {
-        "glob":     "Striped_straw",
+        "glob":     "Video Project 4",
         "id":       "moment",
         "name":     "The Moment",
         "caption":  "THE MOMENT",
         "subtitle": "Ready when you are",
     },
     {
-        "glob":     "Strawberries_chocolate_mint",
+        "glob":     "Video Project 5",
         "id":       "ingredients",
         "name":     "The Ingredients",
         "caption":  "THE INGREDIENTS",
         "subtitle": "Nature's finest, in orbit",
     },
     {
-        "glob":     "Cake_sundae_shake",
+        "glob":     "Video Project 6",
         "id":       "ensemble",
         "name":     "The Ensemble",
         "caption":  "THE ENSEMBLE",
@@ -175,8 +175,17 @@ def resolve_binaries():
 # ─── Helpers ────────────────────────────────────────────────────────
 
 def find_video(pattern):
-    """Locate a .mp4 whose name starts with *pattern* (case-insensitive)."""
+    """Locate a .mp4 whose name or stem matches pattern exactly (case-insensitive), falling back to substring."""
     lo = pattern.lower()
+    # 1. Exact stem match
+    for f in VIDEOS_DIR.iterdir():
+        if f.suffix.lower() == ".mp4" and f.stem.lower() == lo:
+            return f
+    # 2. Exact filename match
+    for f in VIDEOS_DIR.iterdir():
+        if f.suffix.lower() == ".mp4" and f.name.lower() == lo:
+            return f
+    # 3. Substring match
     for f in sorted(VIDEOS_DIR.iterdir()):
         if f.suffix.lower() == ".mp4" and lo in f.name.lower():
             return f

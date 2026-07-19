@@ -59,6 +59,13 @@ STORY = [
         "subtitle": "Details make the difference",
     },
     {
+        "glob":     "Video Project 6",
+        "id":       "ensemble",
+        "name":     "The Ensemble",
+        "caption":  "THE ENSEMBLE",
+        "subtitle": "Together, extraordinary",
+    },
+    {
         "glob":     "Video Project 4",
         "id":       "moment",
         "name":     "The Moment",
@@ -71,13 +78,6 @@ STORY = [
         "name":     "The Ingredients",
         "caption":  "THE INGREDIENTS",
         "subtitle": "Nature's finest, in orbit",
-    },
-    {
-        "glob":     "Video Project 6",
-        "id":       "ensemble",
-        "name":     "The Ensemble",
-        "caption":  "THE ENSEMBLE",
-        "subtitle": "Together, extraordinary",
     },
 ]
 

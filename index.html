@@ -434,11 +434,73 @@
 
 
   <!-- ═══════════════════════════════════════════════════════════════
-       SCRIPTS — order matters: engine → captions → nav
+       ORDER MODAL
+       ═══════════════════════════════════════════════════════════════ -->
+  <div id="order-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      <h2 class="heading-md accent-pink">Create Your Swirl Order</h2>
+      <p class="body-sm" style="color: var(--text-dim); margin-bottom: 1.5rem; font-size: 0.9rem;">
+        Fill out the details below to send your order directly to our team via WhatsApp.
+      </p>
+      
+      <form id="order-form">
+        <div class="form-group">
+          <label for="order-name">Your Name *</label>
+          <input type="text" id="order-name" required placeholder="e.g. John Doe">
+        </div>
+        
+        <div class="form-group">
+          <label for="order-phone">Phone Number *</label>
+          <input type="tel" id="order-phone" required placeholder="e.g. +91 98765 43210">
+        </div>
+        
+        <div class="form-group">
+          <label for="order-product">What are you craving? *</label>
+          <select id="order-product" required>
+            <option value="" disabled selected>Select a product</option>
+            <option value="Cake">Artisan Cake</option>
+            <option value="Ice Cream">Premium Ice Cream Peak</option>
+            <option value="Milkshake">Silk Strawberry Milkshake</option>
+            <option value="Custom Combo">The Ensemble (Custom Combo)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="order-details">Flavor & Custom Specifications *</label>
+          <textarea id="order-details" required placeholder="e.g. Double Chocolate Cake with Strawberry filling, eggless, message: 'Happy Birthday!'"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="order-address">Delivery Address *</label>
+          <textarea id="order-address" required placeholder="Enter full address for delivery"></textarea>
+        </div>
+        
+        <div class="form-group-row">
+          <div class="form-group">
+            <label for="order-date">Preferred Date *</label>
+            <input type="date" id="order-date" required>
+          </div>
+          <div class="form-group">
+            <label for="order-time">Preferred Time *</label>
+            <input type="time" id="order-time" required>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem; border-radius: 8px;">
+          Send Order to WhatsApp <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SCRIPTS — order matters: engine → captions → nav → order
        ═══════════════════════════════════════════════════════════════ -->
   <script src="scroll-engine.js"></script>
   <script src="captions.js"></script>
   <script src="nav.js"></script>
+  <script src="order.js"></script>
 
 </body>
 </html>
